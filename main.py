@@ -1,32 +1,18 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
-from PyQt4 import QtGui
+from PyQt4 import QtGui,QtCore
+from mainwindow_ui import Ui_MainWindow
 
-
-class MainWindow(QtGui.QWidget):
+class MainWindow(QtGui.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.initSignals()
 
-        self.initUI()
-
-    def initUI(self):
-        quitButton = QtGui.QPushButton("Quit")
-        quitButton.clicked.connect(self.close)
-
-        hbox = QtGui.QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(quitButton)
-
-        vbox = QtGui.QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-
-        self.setLayout(vbox)
-
-        # self.setGeometry(300, 300, 300, 150)
-        self.setWindowTitle('Cash Register')
-        self.showFullScreen()
+    def initSignals(self):
+        self.ui.quitButton.clicked.connect(self.close)
 
 
 
@@ -34,6 +20,7 @@ class MainWindow(QtGui.QWidget):
 def main():
     app = QtGui.QApplication(sys.argv)
     ex = MainWindow()
+    ex.showFullScreen()
     sys.exit(app.exec_())
 
 
