@@ -43,8 +43,10 @@ class MainWindow(QtGui.QMainWindow):
 
 
     def add_to_list(self,product_name,price):
-        self.ui.listProducts.addItem(product_name + " : " + str(price))
+        self.ui.listProducts.addItem(product_name)
+        self.ui.listPrices.addItem(str(price))
         self.ui.listProducts.scrollToBottom()
+        self.ui.listPrices.scrollToBottom()
         self.total_price += price
 
 
@@ -57,6 +59,8 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.listProducts.clear()
         self.update_total()
         self.ui.codeBox.setFocus()
+
+    # def get_image
 
 
 def main():
