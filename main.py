@@ -57,6 +57,7 @@ class MainWindow(QtGui.QMainWindow):
     def new_list(self):
         self.total_price = 0
         self.ui.listProducts.clear()
+        self.ui.listPrices.clear()
         self.update_total()
         self.ui.codeBox.setFocus()
 
