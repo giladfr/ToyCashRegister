@@ -62,7 +62,7 @@ class MainWindow(QtGui.QMainWindow):
 def main():
     app = QtGui.QApplication(sys.argv)
     ex = MainWindow()
-    ex.show()
+    ex.showFullScreen()
     sys.exit(app.exec_())
 
 
