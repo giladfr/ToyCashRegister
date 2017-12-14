@@ -30,10 +30,11 @@ class MainWindow(QtGui.QMainWindow):
         if self.database.has_key(search_code):
             price = self.database[search_code]["price"]
             human_name = self.database[search_code]["name"]
-            pixmap = QtGui.QPixmap()
-            pixmap.load("products/" + self.database[search_code]["picture"])
-            pixmap = pixmap.scaledToWidth(self.ui.imgLabel.size().width())
-            self.ui.imgLabel.setPixmap(pixmap)
+            if self.database[search_code].has_key("picture"):
+                pixmap = QtGui.QPixmap()
+                pixmap.load("products/" + self.database[search_code]["picture"])
+                pixmap = pixmap.scaledToWidth(self.ui.imgLabel.size().width())
+                self.ui.imgLabel.setPixmap(pixmap)
         else:
             human_name = search_code
             price = int(random.random()*20)
